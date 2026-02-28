@@ -1,0 +1,115 @@
+/*
+ * Design Tokens — Reef Media Trust & Safety Panel
+ *
+ * Sampled from the design mockup:
+ *   Background: left-to-right gradient, cyan-blue (#7EC8E3 / #6CB4D4) → lavender (#B8A9E3) → rose-pink (#F4A7C3 / #F07EA3)
+ *   Sidebar/card: white with soft shadows
+ *   Active nav: purple-violet (#7C5CBF / #8A4FD8)
+ *   Primary accent gradient: violet #7C5CBF → magenta #C44DB5
+ *   Text heading: #1E1E2E (near-black, Manrope Bold)
+ *   Text body/label: #4A4A6A
+ *   Text muted: #9090B0
+ *   Risk red bar: #E05C5C
+ *   Risk amber bar: #C89A5A
+ *   Risk green bar: #6DC87A
+ *   Google button: white card with border #E0E0EE
+ *   Font: Manrope (Google Fonts)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Palette ─────────────────────────────────────── */
+  --color-bg-from:        #8ECAE6;   /* cyan-blue left */
+  --color-bg-mid:         #C3B1E1;   /* soft lavender mid */
+  --color-bg-to:          #F4A7C3;   /* rose-pink right */
+
+  --color-surface:        #FFFFFF;
+  --color-surface-subtle: #F5F4FC;   /* very light lavender tint */
+
+  --color-primary:        #7C5CBF;   /* violet purple — active nav, headings */
+  --color-primary-dark:   #5A3E9B;
+  --color-primary-light:  #A98ADA;
+
+  --color-accent-from:    #8A4FD8;   /* gradient start — buttons, badges */
+  --color-accent-to:      #C44DB5;   /* gradient end */
+
+  --color-text-heading:   #1E1E2E;
+  --color-text-body:      #4A4A6A;
+  --color-text-muted:     #9090B0;
+  --color-text-on-accent: #FFFFFF;
+
+  --color-border:         #E6E3F5;
+  --color-border-subtle:  #F0EEF9;
+
+  --color-risk-red:       #E05C5C;
+  --color-risk-amber:     #C89A5A;
+  --color-risk-green:     #6DC87A;
+
+  --color-google-border:  #E0E0EE;
+  --color-google-text:    #3A3A5C;
+
+  /* ── Gradients ───────────────────────────────────── */
+  --gradient-bg:          linear-gradient(135deg, var(--color-bg-from) 0%, var(--color-bg-mid) 50%, var(--color-bg-to) 100%);
+  --gradient-accent:      linear-gradient(135deg, var(--color-accent-from) 0%, var(--color-accent-to) 100%);
+  --gradient-active-nav:  linear-gradient(135deg, #8A4FD8 0%, #C44DB5 100%);
+
+  /* ── Typography ──────────────────────────────────── */
+  --font-family:          'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-size-xs:         0.75rem;   /* 12px */
+  --font-size-sm:         0.875rem;  /* 14px */
+  --font-size-base:       1rem;      /* 16px */
+  --font-size-md:         1.125rem;  /* 18px */
+  --font-size-lg:         1.25rem;   /* 20px */
+  --font-size-xl:         1.5rem;    /* 24px */
+  --font-size-2xl:        1.875rem;  /* 30px */
+  --font-size-3xl:        2.25rem;   /* 36px */
+
+  --font-weight-light:    300;
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --font-weight-extrabold:800;
+
+  --line-height-tight:    1.2;
+  --line-height-normal:   1.5;
+  --line-height-relaxed:  1.75;
+
+  /* ── Spacing ─────────────────────────────────────── */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* ── Border radius ───────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────────── */
+  --shadow-card:   0 4px 24px 0 rgba(100, 80, 180, 0.10);
+  --shadow-button: 0 4px 16px 0 rgba(138, 79, 216, 0.30);
+  --shadow-input:  0 2px 8px 0 rgba(100, 80, 180, 0.08);
+
+  /* ── Transitions ─────────────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Z-index ─────────────────────────────────────── */
+  --z-base:    0;
+  --z-elevated:10;
+  --z-modal:   100;
+  --z-toast:   200;
+}

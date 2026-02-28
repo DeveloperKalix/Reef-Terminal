@@ -1,0 +1,23 @@
+[project]
+name = "dashboard-backend"
+version = "0.1.0"
+description = "Dashboard backend with Firebase via Jaclang"
+entry = "main.jac"
+
+[serve]
+port = 6000
+
+[dependencies]
+firebase-admin = "~=6.0"
+
+[dependencies.dev]
+pytest = "~=7.0"
+
+[environments.development]
+# Path to Firebase service account JSON (optional; also supports GOOGLE_APPLICATION_CREDENTIALS)
+# FIREBASE_CREDENTIALS_PATH = "./serviceAccountKey.json"
+
+[scripts]
+dev = "jac start main.jac --dev --no_client"
+start = "jac start main.jac"
+install = "jac install"

@@ -1,0 +1,13 @@
+# Jac build artifacts
+.jac/
+
+# Environment — never commit actual values
+.env
+.env.local
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store

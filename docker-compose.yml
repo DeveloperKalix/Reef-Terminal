@@ -1,0 +1,19 @@
+services:
+
+  # ── Backend: Jac + Firebase Admin ────────────────────────────────────────
+  panel-back:
+    build:
+      context: ./Back
+      dockerfile: Dockerfile
+    container_name: Panel-Reef-Media-Back
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6002:6000"  # VPS nginx proxies /api/* here
+    environment:
+      FIREBASE_CREDENTIALS_PATH: /run/secrets/firebase_credentials
+    secrets:
+      - firebase_credentials
+
+secrets:
+  firebase_credentials:
+    file: ./Back/reef-media-trust-panel-firebase-adminsdk-fbsvc-39a64f5023.json

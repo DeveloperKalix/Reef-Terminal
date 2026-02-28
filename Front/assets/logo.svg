@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Reef Media coral/seaweed mark  matches the orange motif in the mockup -->
+  <path d="M32 56 C32 56 18 46 18 30 C18 18 24 10 32 8" stroke="#F07040" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M32 56 C32 56 46 46 46 30 C46 18 40 10 32 8" stroke="#E8502A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M32 8 C32 8 22 14 20 22" stroke="#F07040" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M32 8 C32 8 42 14 44 22" stroke="#E8502A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M26 38 C22 34 20 28 22 22" stroke="#F4945A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M38 38 C42 34 44 28 42 22" stroke="#D04828" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="32" cy="8" r="3" fill="#F07040"/>
+  <circle cx="26" cy="38" r="2.5" fill="#F4945A"/>
+  <circle cx="38" cy="38" r="2.5" fill="#D04828"/>
+</svg>

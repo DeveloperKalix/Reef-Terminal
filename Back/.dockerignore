@@ -1,0 +1,13 @@
+# Never bake credentials into the image
+*.json
+.env
+.env.local
+
+# Jac build artifacts (rebuilt inside container)
+.jac/
+
+# Docs & tooling
+README.md
+*.md
+.gitignore
+.dockerignore

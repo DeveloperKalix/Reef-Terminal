@@ -10,27 +10,35 @@ interface ChartProps {
   color?: string;
   type?: 'line' | 'area';
   height?: number;
+  xLabel?: string;
+  yLabel?: string;
 }
 
+const AXIS_LABEL_STYLE = { fontSize: 10, fill: '#9090B0', fontFamily: 'Manrope, sans-serif' };
+const TOOLTIP_STYLE = { background: '#fff', border: '1px solid #E6E3F5', borderRadius: 8, fontSize: 12, fontFamily: 'Manrope, sans-serif' };
+
 export const MiniChart: React.FC<ChartProps> = ({
-  data, color = '#7C5CBF', type = 'line', height = 160
+  data, color = '#7C5CBF', type = 'line', height = 160, xLabel, yLabel
 }) => {
+  const xProps: any = { dataKey: 'name', tick: { fontSize: 10, fill: '#9090B0' }, axisLine: false, tickLine: false };
+  if (xLabel) xProps.label = { value: xLabel, position: 'insideBottom', offset: -2, style: AXIS_LABEL_STYLE };
+
   return (
     <ResponsiveContainer width="100%" height={height}>
       {type === 'area' ? (
-        <AreaChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: -20 }}>
+        <AreaChart data={data} margin={{ top: 8, right: 8, bottom: xLabel ? 18 : 0, left: -20 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#F0EEF9" />
-          <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9090B0' }} axisLine={false} tickLine={false} />
+          <XAxis {...xProps} />
           <YAxis hide />
-          <Tooltip contentStyle={{ background: '#fff', border: '1px solid #E6E3F5', borderRadius: 8, fontSize: 12, fontFamily: 'Manrope, sans-serif' }} />
+          <Tooltip contentStyle={TOOLTIP_STYLE} />
           <Area type="monotone" dataKey="value" stroke={color} fill={color} fillOpacity={0.12} strokeWidth={2} dot={false} activeDot={{ r: 4, fill: color }} />
         </AreaChart>
       ) : (
-        <LineChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: -20 }}>
+        <LineChart data={data} margin={{ top: 8, right: 8, bottom: xLabel ? 18 : 0, left: -20 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#F0EEF9" />
-          <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9090B0' }} axisLine={false} tickLine={false} />
+          <XAxis {...xProps} />
           <YAxis hide />
-          <Tooltip contentStyle={{ background: '#fff', border: '1px solid #E6E3F5', borderRadius: 8, fontSize: 12, fontFamily: 'Manrope, sans-serif' }} />
+          <Tooltip contentStyle={TOOLTIP_STYLE} />
           <Line type="monotone" dataKey="value" stroke={color} strokeWidth={2} dot={false} activeDot={{ r: 4, fill: color }} />
         </LineChart>
       )}
@@ -43,8 +51,11 @@ interface FullChartProps extends ChartProps {
 }
 
 export const FullScreenChart: React.FC<FullChartProps> = ({
-  data, color = '#7C5CBF', type = 'line', title
+  data, color = '#7C5CBF', type = 'line', title, xLabel, yLabel
 }) => {
+  const yAxisLabel = yLabel ? { value: yLabel, angle: -90, position: 'insideLeft' as const, offset: 10, style: { ...AXIS_LABEL_STYLE, fontSize: 11 } } : undefined;
+  const xAxisLabel = xLabel ? { value: xLabel, position: 'insideBottom' as const, offset: -4, style: { ...AXIS_LABEL_STYLE, fontSize: 11 } } : undefined;
+
   return (
     <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
       <h3 style={{
@@ -54,19 +65,19 @@ export const FullScreenChart: React.FC<FullChartProps> = ({
       <div style={{ flex: 1, minHeight: 0 }}>
         <ResponsiveContainer width="100%" height="100%">
           {type === 'area' ? (
-            <AreaChart data={data} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+            <AreaChart data={data} margin={{ top: 8, right: 16, bottom: xLabel ? 22 : 8, left: yLabel ? 20 : 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#F0EEF9" />
-              <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ background: '#fff', border: '1px solid #E6E3F5', borderRadius: 8, fontSize: 12, fontFamily: 'Manrope, sans-serif' }} />
+              <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} label={xAxisLabel} />
+              <YAxis tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} label={yAxisLabel} />
+              <Tooltip contentStyle={TOOLTIP_STYLE} />
               <Area type="monotone" dataKey="value" stroke={color} fill={color} fillOpacity={0.15} strokeWidth={2} dot={{ r: 3, fill: color }} activeDot={{ r: 5, fill: color }} />
             </AreaChart>
           ) : (
-            <LineChart data={data} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+            <LineChart data={data} margin={{ top: 8, right: 16, bottom: xLabel ? 22 : 8, left: yLabel ? 20 : 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#F0EEF9" />
-              <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ background: '#fff', border: '1px solid #E6E3F5', borderRadius: 8, fontSize: 12, fontFamily: 'Manrope, sans-serif' }} />
+              <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} label={xAxisLabel} />
+              <YAxis tick={{ fontSize: 11, fill: '#9090B0' }} axisLine={false} tickLine={false} label={yAxisLabel} />
+              <Tooltip contentStyle={TOOLTIP_STYLE} />
               <Line type="monotone" dataKey="value" stroke={color} strokeWidth={2} dot={{ r: 3, fill: color }} activeDot={{ r: 5, fill: color }} />
             </LineChart>
           )}

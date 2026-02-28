@@ -34,5 +34,5 @@ typescript = true
 
 [scripts]
 dev = "jac start main.jac --dev"
-build = "jac build"
+build = "jac build && node scripts/patch-runtime.js"
 start = "jac start main.jac"

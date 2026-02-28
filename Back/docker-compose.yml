@@ -6,7 +6,7 @@ services:
     container_name: Panel-Reef-Media
     restart: unless-stopped
     ports:
-      - "127.0.0.1:6000:6000"   # Only accessible from localhost (nginx proxies externally)
+      - "127.0.0.1:6002:6000"   # Only accessible from localhost (nginx proxies externally)
     environment:
       # Points to the Docker secret mount — value is a path, not the secret itself
       FIREBASE_CREDENTIALS_PATH: /run/secrets/firebase_credentials

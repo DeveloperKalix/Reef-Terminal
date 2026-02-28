@@ -14,7 +14,7 @@ COPY jac.toml ./
 RUN jac install
 
 # Copy application source (credentials file excluded via .dockerignore)
-COPY main.jac firebase_app.py ./
+COPY main.jac firebase_app.py llm_agent.py ./
 
 EXPOSE 6000
 
